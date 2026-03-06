@@ -1,4 +1,4 @@
-let brainrotThemes = [
+window.brainrotThemes = [
     {
         themeID: "theme-01",
         theme: "subway surfers"

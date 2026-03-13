@@ -19,8 +19,9 @@ body {
 main {
     display: flex;
     justify-content: space-around;
-    padding: 20px;
-    height: 65vh;
+    padding: 0px 20px 20px 20px;
+    /* height: 100%; */
+    height: 75vh;
 }
 
 nav {
@@ -29,6 +30,8 @@ nav {
     padding: 10px;
     /* border-radius: 15px; */
     /* border: solid black 2px; */
+    display: flex;
+    justify-content: space-between;
 }
 
 a {
@@ -42,42 +45,116 @@ iframe {
 .workshop {
     background-color: white;
     width: 70%;
-    height: 100%;
+    /* height: 100%; */
     border-radius: 15px;
     border: solid #C7D0DE 1px;
     padding: 20px;
-    margin: 10px;
+    margin: 4px;
+    display: flex;
 }
 .preview {
     background-color: white;
-    width: 30%;
-    height: 100%;
+    /* width: 30%; */
+    height: 40%;
     border-radius: 15px;
     border: solid #C7D0DE 1px;
     padding: 20px;
-    margin: 10px;
+    margin: 4px;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+.tool-menu {
+    background-color: white;
+    width: 90%;
+    /* height: 100%; */
+    border-radius: 15px;
+    border: solid #C7D0DE 1px;
+    padding: 20px;
+    margin: 4px;
+}
+
+.backdrops {
+    background-color: white;
+    width: 10%;
+    /* height: 100%; */
+    border-radius: 15px;
+    border: solid #C7D0DE 1px;
+    padding: 20px;
+    margin: 4px;
+
+}
+
+.tools {
+    display: flex;
+    height: 60%;
+}
+
+.panel {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 100%;
+}
+
+.coursePanel {
+    background-color: white;
+    width: 5%;
+    border-radius: 15px;
+    border: solid #C7D0DE 1px;
+    /* padding: 20px; */
+    margin: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    /* text-align: center; */
+}
+
+.courseButtonDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* border-radius: 15px; */
+    /* margin: 0 auto; */
+}
+
+.courseButtonDiv:hover {
+    /* background-color: #E9EEF2; */
+    cursor: pointer;
+}
+
+.courseLabel {
+    font-size: 10px;
+    text-align: center;
+    margin: 5px;
+    /* border-bottom: solid black 1px  */
+}
+
+.courseButtonDiv:hover .courseLabel {
+    color: #4C97FF;
+}
+
 .courseButton {
-    background-color: #FEAB18;
+    /* background-color: #FEAB18; */
     color: white;
     border: none;
-    border-radius: 5px;
+    width: 25px; /* Equal width and height */
+    height: 25px;
+    border-radius: 50%;
+    border: solid rgba(0, 0, 0, 0.3) 1px;
     padding: 10px;
-    margin: 5px;
+    margin: 10px auto 0px auto;
     cursor: pointer;
     font-family: "Gloria Hallelujah", cursive;
 }
 
 .courseButton:hover {
-    background-color: #543601;
+    filter: saturate(0.6);
 }
 
 .courseCard {
-    width: 50%;
+    height: 50%;
     border: solid black 1px;
     border-radius: 10px;
     padding: 10px;
@@ -89,3 +166,21 @@ img {
     width: 100%;
     height: auto;
 }
+
+.go {
+    display: flex;
+}
+
+.empty {
+    width: 60%;
+}
+
+.go-menu {
+    display: flex;
+    justify-content: center;
+    width: 30%;
+    /* flex-direction: column;
+    justify-content: center;
+    align-items: center; */
+}
+

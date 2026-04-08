@@ -46,6 +46,7 @@ function generateCourseButtons(courses) {
 
 function generateCourseTopicCards(courseID) {
     let workshop = document.querySelector(".workshop")
+    let cardCollection = document.querySelector(".card-collection")
     workshop.innerHTML = ""
 
     // card creation 
@@ -67,9 +68,20 @@ function generateCourseTopicCards(courseID) {
         card.appendChild(image)
         card.appendChild(title)
         // card.appendChild(description)
-        card.appendChild(button)
+        // card.appendChild(button)
         
         workshop.appendChild(card)
+        card.addEventListener("click", () => {
+            let newCard = card.cloneNode(true)
+            newCard.style.width = "10%"
+            newCard.style.height = "10%"
+            newCard.style.fontSize = "0.5rem"
+            newCard.style.border = "solid #845BD6 5px"
+            cardCollection.appendChild(newCard)
+            card.style.backgroundColor = "#E9EEF2"
+            
+            // card.style.display = "none"
+        })
     })
     // card design to be generated:
             // <div class="courseCard">

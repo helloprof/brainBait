@@ -51,6 +51,7 @@ iframe {
     padding: 20px;
     margin: 4px;
     display: flex;
+    justify-content: space-around;
 }
 .preview {
     background-color: white;
@@ -66,12 +67,12 @@ iframe {
 }
 
 .tool-menu {
-    background-color: white;
+    /* background-color: white; */
     width: 90%;
     /* height: 100%; */
     border-radius: 15px;
     border: solid #C7D0DE 1px;
-    padding: 20px;
+    /* padding: 20px; */
     margin: 4px;
 }
 
@@ -81,7 +82,7 @@ iframe {
     /* height: 100%; */
     border-radius: 15px;
     border: solid #C7D0DE 1px;
-    padding: 20px;
+    padding: 10px;
     margin: 4px;
 
 }
@@ -115,7 +116,7 @@ iframe {
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* border-radius: 15px; */
+    border-radius: 15px;
     /* margin: 0 auto; */
 }
 
@@ -155,7 +156,7 @@ iframe {
 
 .courseCard {
     height: 50%;
-    border: solid black 1px;
+    border: solid #C7D0DE 1px;
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
@@ -164,7 +165,8 @@ iframe {
 img {
     border-radius: 10px;
     width: 100%;
-    height: auto;
+    /* width: 80%; */
+    /* height: auto; */
 }
 
 .go {
@@ -184,3 +186,43 @@ img {
     align-items: center; */
 }
 
+.openai-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 15px 15px 0px 0px;
+    border-bottom: solid #C7D0DE 1px;
+    padding: 20px;
+    background-color: white;
+    height: 25%;
+}
+
+.card-collection {
+    display: flex;
+    justify-content: space-around;
+    flex-direction: row;
+    padding: 10px;
+    background-color: #E6F0FF;
+    /* flex-wrap: wrap; */
+    overflow: auto;
+    /* flex-flow: row wrap; */
+}
+
+input {
+    width: 80%;
+    padding: 20px;
+    border: solid #C7D0DE 1px;
+    border-radius: 15px 0px 0px 15px;
+    font-family: 'Comic Neue', cursive;
+}
+
+.theme {
+    border: grey solid 1px;
+    padding: 2px;
+    border-radius: 10px;
+}
+
+.theme:hover {
+    border: solid #845BD6 2px;
+    cursor: pointer;
+}   

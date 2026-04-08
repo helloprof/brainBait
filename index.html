@@ -31,6 +31,7 @@
         </div>
         <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/gS2XViND-8I?si=ZH3zHBXIBWIzXr4Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
         <div class="workshop" >
+            workshop
             <!-- <img src="/images/scratchy.webp"> -->
             <!-- <button class="courseButton">Course 1</button> -->
              <!-- <div class="courseCard">
@@ -41,8 +42,10 @@
              </div> -->
          </div>
         <div class="panel">
+            panel
 
         <div class="preview" >
+            preview
             <!-- <img src="/images/scratchy.webp"> -->
             <!-- <button class="courseButton">Course 1</button> -->
              <!-- <div class="courseCard">
@@ -54,10 +57,18 @@
          </div>
         <div class="tools" >
             <div class="tool-menu">
-                A
+                <form class="openai-input">
+                    <input type="text" placeholder="Enter a prompt...">
+                    <button type="submit" style="padding: 20px; border-radius: 0 15px 15px 0; border: solid #C7D0DE 1px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+                </form>
+                <div class="card-collection">
+
+                </div>
             </div>
             <div class="backdrops">
-                B
+                <div class="theme">
+                    <img src="https://i.redd.it/variations-to-the-minecraft-logo-v0-0dzqovtefeqd1.png?width=1218&format=png&auto=webp&s=4e7beefe76053942332e5c9f4c4f71671f97e63e">
+                </div>
             </div>
         </div>
 
@@ -67,6 +78,24 @@
     <script src="/js/courses.js"></script>
     <script src="/js/courseTopics.js"></script>
     <script src="/js/app.js"></script>
+    <script>
+        // fetch('https://api.openai.com/v1/videos', {
+        //     method: 'POST',
+        //     headers: {
+        //         'Content-Type': 'application/json',
+        //         'Authorization': 'Bearer API-KEY-HERE'
+        //     },
+        //     body: JSON.stringify({
+        //         model: "sora-2",
+        //         prompt: "A calico cat playing a piano on stage"
+        //     })
+        // }).then(response => response.json())
+        //   .then(data => {
+        //       console.log(data);
+        //   }).catch(error => {
+        //       console.error('Error:', error);
+        //   });
+    </script>
 
 </body>
 </html>

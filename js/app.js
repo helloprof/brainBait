@@ -79,7 +79,11 @@ function generateCourseTopicCards(courseID) {
             newCard.style.border = "solid #845BD6 5px"
             cardCollection.appendChild(newCard)
             card.style.backgroundColor = "#E9EEF2"
-            
+            let input = document.querySelector(".prompt")
+
+            // append topic to prompt input
+            input.value += ` ${topic.topic}`
+
             // card.style.display = "none"
         })
     })
@@ -93,7 +97,29 @@ function generateCourseTopicCards(courseID) {
 
 }
 
+let generateThemeCards = (brainrotThemes) => {
+    let backdropsDiv = document.querySelector(".backdrops")
+    let input = document.querySelector(".prompt")
+    brainrotThemes.forEach((theme) => {
+        let themeCard = document.createElement("div")
+        themeCard.className = "theme"
+
+        let image = document.createElement("img")
+        image.src = theme.image
+
+        themeCard.appendChild(image)
+        backdropsDiv.appendChild(themeCard)
+
+        themeCard.addEventListener("click", () => {
+            input.value += ` with brainrot theme ${theme.theme}`
+        })
+    })
+
+
+}
+
 document.addEventListener("DOMContentLoaded", () => {
     console.log("DOM fully loaded and parsed");
     generateCourseButtons(courses);
+    generateThemeCards(brainrotThemes);
 })

@@ -64,6 +64,7 @@ iframe {
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow: auto;
 }
 
 .tool-menu {
@@ -101,10 +102,10 @@ iframe {
 
 .coursePanel {
     background-color: white;
-    width: 5%;
+    width: 20%;
     border-radius: 15px;
     border: solid #C7D0DE 1px;
-    /* padding: 20px; */
+    padding: 10px;
     margin: 4px;
     display: flex;
     flex-direction: column;
@@ -208,7 +209,7 @@ img {
     /* flex-flow: row wrap; */
 }
 
-input {
+.prompt {
     width: 80%;
     padding: 20px;
     border: solid #C7D0DE 1px;
@@ -226,3 +227,56 @@ input {
     border: solid #845BD6 2px;
     cursor: pointer;
 }   
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #3498db;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite; /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% { -webkit-transform: rotate(0deg); }
+  100% { -webkit-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+#courseForm {
+    border: 2px solid #C7D0DE;
+    padding: 15px;
+    border-radius: 15px;
+    background-color: #F8FAFC;
+    margin-bottom: 20px;
+}
+
+#courseForm input {
+    padding: 15px;
+    border: solid #C7D0DE 1px;
+    border-radius: 15px;
+    font-family: 'Comic Neue', cursive;
+    box-sizing: border-box;
+    font-size: 14pt;
+}
+
+#courseForm button {
+    padding: 15px;
+    border: none;
+    border-radius: 15px;
+    font-family: 'Comic Neue', cursive;
+    background-color: #845BD6;
+    color: white;
+    font-weight: bold;
+    font-size: 14pt;
+    cursor: pointer;
+    width: 100%;
+    margin-top: 10px;
+}
+

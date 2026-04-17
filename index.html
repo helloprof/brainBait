@@ -27,7 +27,13 @@
     </div>
     <main>
         <div class="coursePanel">
-
+            <form id="courseForm">
+                <input style="width:100%;" type="text" placeholder="Course Name">
+                <input style="width:100%; margin-top: 10px;" type="text" placeholder="Course ID">
+                <input style="width:100%; margin-top: 10px;" type="text" placeholder="Semester">
+                <input style="width:100%; margin-top: 10px;" type="color" placeholder="Course Color">
+                <button type="submit">Submit</button>
+            </form>
         </div>
         <!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/gS2XViND-8I?si=ZH3zHBXIBWIzXr4Y" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe> -->
         <div class="workshop" >
@@ -58,17 +64,15 @@
         <div class="tools" >
             <div class="tool-menu">
                 <form class="openai-input">
-                    <input type="text" placeholder="Enter a prompt...">
-                    <button type="submit" style="padding: 20px; border-radius: 0 15px 15px 0; border: solid #C7D0DE 1px;"><i class="fa-solid fa-magnifying-glass"></i></button>
+                    <input style="font-size: 8pt;" class="prompt" type="text" placeholder="Enter a prompt..." value="Generate an meme image teaching...">
+                    <button id="prompt-button" type="submit" style="padding: 20px; border-radius: 0 15px 15px 0; border: solid #C7D0DE 1px;"><i class="fa-solid fa-paper-plane"></i></button>
                 </form>
                 <div class="card-collection">
 
                 </div>
             </div>
             <div class="backdrops">
-                <div class="theme">
-                    <img src="https://i.redd.it/variations-to-the-minecraft-logo-v0-0dzqovtefeqd1.png?width=1218&format=png&auto=webp&s=4e7beefe76053942332e5c9f4c4f71671f97e63e">
-                </div>
+
             </div>
         </div>
 
@@ -79,6 +83,121 @@
     <script src="/js/courseTopics.js"></script>
     <script src="/js/app.js"></script>
     <script>
+        let courseForm = document.getElementById('courseForm');
+        let coursePanel = document.querySelector('.coursePanel');
+        courseForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            let courseName = courseForm.elements[0].value;
+            let courseID = courseForm.elements[1].value;
+            let semester = courseForm.elements[2].value;
+            let courseColor = courseForm.elements[3].value;
+
+            console.log(courseName, courseID, semester, courseColor);
+            
+            // create button for each course
+            let button = document.createElement("button")
+            button.className = "courseButton"        
+            button.style.backgroundColor = courseColor
+
+            let courseLabel = document.createElement("p")
+            courseLabel.className = "courseLabel"
+            courseLabel.textContent = courseID
+
+            let buttonDiv = document.createElement("div")
+            buttonDiv.className = "courseButtonDiv"
+
+            buttonDiv.appendChild(button)
+            buttonDiv.appendChild(courseLabel)
+
+
+            coursePanel.appendChild(buttonDiv)
+        })
+
+        let promptButton = document.getElementById('prompt-button');
+        let preview = document.querySelector('.preview');
+        // add loader to preview
+
+
+        promptButton.addEventListener('click', function(e) {
+            e.preventDefault();
+            preview.innerHTML = '<div class="loader"></div>';
+            let promptInput = document.querySelector('.prompt');
+            let promptValue = promptInput.value;
+            console.log(promptValue);
+
+            // meme generation example
+                fetch('https://api.openai.com/v1/images/generations', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Authorization': 'Bearer API-KEY-HERE'
+                },
+                body: JSON.stringify({
+                    // model: "gpt-5t",
+                    model: "gpt-image-1.5",
+                    prompt: promptValue,
+                    // tools: [{type: "image_generation"}],
+                })
+            })
+
+            // fetch('https://api.openai.com/v1/responses', {
+            //     method: 'POST',
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //         'Authorization': 'Bearer API-KEY-HERE'
+            //     },
+            //     body: JSON.stringify({
+            //         model: "gpt-5.4",
+            //         input: promptValue
+            //     })
+            // })
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+
+                let preview = document.querySelector('.preview');
+                preview.innerHTML = '';
+                let img = document.createElement('img');
+                // base64
+                img.src = `data:image/png;base64,${data.data[0].b64_json}`;
+                preview.appendChild(img);
+
+                // to show text in preview
+                // let output = data.output[0].content[0].text;
+                // console.log(output);
+                // let script = document.createElement('p');
+                // script.textContent = output
+                // preview.appendChild(script);
+
+
+
+
+                // send to sora
+
+
+                        // fetch('https://api.openai.com/v1/videos', {
+                        //     method: 'POST',
+                        //     headers: {
+                        //         'Content-Type': 'application/json',
+                        //         'Authorization': 'Bearer API-KEY-HERE'
+                        //     },
+                        //     body: JSON.stringify({
+                        //         model: "sora-2",
+                        //         prompt: promptValue
+                        //     })
+                        // }).then(response => response.json())
+                        // .then(data => {
+                        //     console.log(data);
+                        //     console.log ("DONE!")
+                        // }).catch(error => {
+                        //     console.error('Error:', error);
+                        // });
+                        //     })
+                        //     .catch(error => {
+                        //         console.error('Error:', error);
+                        //     });
+                        // })
+
         // fetch('https://api.openai.com/v1/videos', {
         //     method: 'POST',
         //     headers: {
@@ -95,7 +214,10 @@
         //   }).catch(error => {
         //       console.error('Error:', error);
         //   });
+        })
+        })
     </script>
+
 
 </body>
 </html>
